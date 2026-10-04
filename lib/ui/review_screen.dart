@@ -148,7 +148,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                 context: context,
                 initialDate: date,
                 firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
+                lastDate: DateTime(2100, 12, 31),
               );
               if (chosen != null) setState(() => date = chosen);
             },

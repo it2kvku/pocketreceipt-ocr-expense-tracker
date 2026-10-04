@@ -2,7 +2,7 @@
 
 **Little receipts. A clearer picture.** An offline-first Flutter expense tracker built for Mini-Project 3.
 
-- [Live browser companion](https://it2kvku.github.io/pocketreceipt-ocr-expense-tracker/)
+- [Live browser companion](https://pocketreceipt-demo.onrender.com)
 - [Android APK, demonstration video and technical report](https://github.com/it2kvku/pocketreceipt-ocr-expense-tracker/releases/latest)
 
 The Android app performs real on-device image OCR. The browser companion supports typed receipt parsing, CRUD and charts with browser persistence; it explicitly does **not** claim browser ML Kit OCR or SQLite.
@@ -77,3 +77,4 @@ The assignment's official report template was not supplied. The included four-pa
 - [Flutter CustomPainter](https://api.flutter.dev/flutter/rendering/CustomPainter-class.html)
 
 MIT license. Built for educational demonstration.
+
