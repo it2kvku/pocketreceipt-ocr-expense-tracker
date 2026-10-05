@@ -74,7 +74,10 @@ class _CaptureScreenState extends State<CaptureScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.inactive) {
+    // Permission dialogs temporarily inactivate the app during initialize().
+    // Keep the pending controller alive until the permission result returns.
+    if (state == AppLifecycleState.inactive &&
+        controller?.value.isInitialized == true) {
       final c = controller;
       controller = null;
       c?.dispose();
