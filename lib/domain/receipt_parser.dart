@@ -40,6 +40,9 @@ class ReceiptParser {
 
   static int? parseAmount(String input) {
     var s = normalize(input).replaceAll(RegExp(r'vnd|dong|₫|d'), '').trim();
+    // A short value such as 150,00 can be a damaged 150,000 OCR token.
+    // Reject this ambiguity instead of silently recording 150 dong.
+    if (RegExp(r'^\d{1,3}[.,]\d{2}$').hasMatch(s)) return null;
     // Decimal fractions are accepted only when zero: VND has no fractional unit.
     s = s.replaceFirst(RegExp(r'[.,]00$'), '');
     if (!RegExp(r'^\d{1,3}([., ]\d{3})+$|^\d+$').hasMatch(s)) return null;
@@ -60,11 +63,9 @@ class ReceiptParser {
     final warnings = <String>[];
     final amounts = <int>{};
     final datePattern = RegExp(
-      r'\b(\d{1,2})[/.-](\d{1,2})[/.-](\d{4}|\d{2})\b',
+      r'\b(\d{1,2})\s*[/.-]\s*(\d{1,2})\s*[/.-]\s*(\d{4}|\d{2})\b',
     );
-    final amountPattern = RegExp(
-      r'\d{1,3}(?:[., ]\d{3})+(?:[.,]00)?|\d+(?:[.,]00)?',
-    );
+    final amountPattern = RegExp(r'\d+(?:[.,]\d+| +\d{3})*');
     for (var i = 0; i < lines.length; i++) {
       final line = lines[i];
       final n = normalize(line);

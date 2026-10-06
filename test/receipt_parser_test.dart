@@ -3,6 +3,14 @@ import 'package:pocket_receipt/domain/receipt_parser.dart';
 import 'package:pocket_receipt/domain/expense.dart';
 
 void main() {
+  test('OCR spacing in dates and damaged amount remain safe', () {
+    final result = ReceiptParser().parse(
+      'SHOP\nDate: 07/10/ 2026\nTOTAL 150,00 VND',
+    );
+    expect(result.date, DateTime(2026, 10, 7));
+    expect(result.amount, isNull);
+    expect(ReceiptParser().parse('SHOP\nTOTAL 150,0 VND').amount, isNull);
+  });
   final parser = ReceiptParser();
   for (final input in [
     '150,000',
