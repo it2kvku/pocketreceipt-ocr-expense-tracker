@@ -21,7 +21,7 @@ The Android app performs real on-device image OCR. The browser companion support
 
 ## Setup
 
-Tested toolchain: Flutter **3.47.5**, Dart **3.13.4**, Android SDK and Java 17+. Install a compatible Flutter 3.x release supporting Dart 3.13.4 or newer. Android minimum SDK 24. The repository targets Android and web; iOS is not configured or tested.
+Tested toolchain: Flutter **3.47.5**, Dart **3.13.4**, Android SDK and Android Studio JBR 25. Install a compatible Flutter 3.x release supporting Dart 3.13.4 or newer. Android minimum SDK 24. The repository targets Android and web; iOS is not configured or tested.
 
 ```sh
 flutter pub get
@@ -63,7 +63,7 @@ SQLite schema v1: `expenses(id TEXT PRIMARY KEY, merchant TEXT, amount INTEGER C
 
 ## Verification and honest limits
 
-Automated tests cover grouped currency formats, invalid amounts/dates, Vietnamese totals, split-line totals, ambiguous totals, missing totals, category suggestions, SQLite insert/update/reopen/delete, review validation and empty charts. Screenshots and the video demonstrate the built app; see the report for measured results.
+**29 tests passed; `flutter analyze` reported no issues.** Automated tests cover grouped currency formats, invalid amounts/dates, Vietnamese totals, split-line totals, ambiguous totals, missing totals, category suggestions, SQLite insert/update/reopen/delete, review validation and empty charts. Screenshots and the video demonstrate the built app; see the report for measured results.
 
 Sub-100 ms OCR is a **performance target**, not a universal guarantee. Cold model initialization, emulator speed, image resolution, lighting and device hardware affect latency. Benchmark release builds on physical devices before claiming the target. Recognition can misread accents, faint print or skewed receipts. The heuristic parser is not a trained receipt understanding model; review is always required. Currency support is intentionally VND only. Default category is Food when no keyword matches.
 
@@ -78,3 +78,7 @@ The assignment's official report template was not supplied. The included four-pa
 
 MIT license. Built for educational demonstration.
 
+
+Release validation on 8 October 2026: native ML Kit read GREEN MART, 150000 VND and 07/10/2026 from the synthetic receipt. The emulator reported 6552 ms for that OCR call. SQLite persistence survived force-stop/relaunch. See [validation evidence](docs/VALIDATION.md).
+
+![Android OCR review](docs/screenshots/review.png)
