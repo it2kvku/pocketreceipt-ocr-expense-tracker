@@ -1,11 +1,11 @@
 {
-    "name": "pocket_receipt",
-    "short_name": "pocket_receipt",
+    "name": "PocketReceipt",
+    "short_name": "PocketReceipt",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#193B2F",
+    "theme_color": "#193B2F",
+    "description": "Offline receipt parsing and personal expense insights.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
