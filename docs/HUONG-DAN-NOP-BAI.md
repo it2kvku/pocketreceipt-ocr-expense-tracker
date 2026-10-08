@@ -36,4 +36,4 @@ flutter build apk --release
 
 File APK đầu ra: `build/app/outputs/flutter-apk/app-release.apk`.
 
-Báo cáo dài 4 trang, gồm checklist tính năng, kiến trúc, ảnh chụp ứng dụng và kiểm chứng. Đề bài chưa kèm file mẫu chính thức nên báo cáo được trình bày theo các mục đã yêu cầu.
+Báo cáo dài 4 trang, trình bày theo mẫu Mini-Project-3-Report-Template.md: thông tin chung và đường dẫn, checklist tính năng, kiến trúc, 3 ảnh màn hình, thách thức kỹ thuật và cách giải quyết. Mã sinh viên chưa được cung cấp nên báo cáo ghi rõ “Not provided”.

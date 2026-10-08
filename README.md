@@ -67,7 +67,7 @@ SQLite schema v1: `expenses(id TEXT PRIMARY KEY, merchant TEXT, amount INTEGER C
 
 Sub-100 ms OCR is a **performance target**, not a universal guarantee. Cold model initialization, emulator speed, image resolution, lighting and device hardware affect latency. Benchmark release builds on physical devices before claiming the target. Recognition can misread accents, faint print or skewed receipts. The heuristic parser is not a trained receipt understanding model; review is always required. Currency support is intentionally VND only. Default category is Food when no keyword matches.
 
-The assignment's official report template was not supplied. The included four-page report follows the requested feature checklist, architecture, screenshots and verification structure.
+The included four-page report follows the supplied VKU mini-project template: general information and links, feature checklist, architecture, three annotated emulator screenshots, and technical challenges. The student ID was not provided, so the report marks it explicitly rather than inventing one.
 
 ## Primary references
 
